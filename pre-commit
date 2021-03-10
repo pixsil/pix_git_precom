@@ -1,15 +1,5 @@
 #!/bin/sh
 
-# if git status --short | grep '^\w.' | grep 'resources'
-# then
-#    PATH=$PATH:/usr/local/bin:/usr/local/sbin
-#    npm run production
-#    find public -name app.js -exec git add {} \;
-#    find public -name app.css -exec git add {} \;
-# else
-#    echo "No compiling needed";
-# fi
-
 # init
 do_compile=0
 
