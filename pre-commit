@@ -1,0 +1,41 @@
+#!/bin/sh
+
+# if git status --short | grep '^\w.' | grep 'resources'
+# then
+#    PATH=$PATH:/usr/local/bin:/usr/local/sbin
+#    npm run production
+#    find public -name app.js -exec git add {} \;
+#    find public -name app.css -exec git add {} \;
+# else
+#    echo "No compiling needed";
+# fi
+
+# init
+do_compile=0
+
+# get the files
+files="$(sed '1d;$d' public/mix-manifest.json | sed -e 's|":.*||g' | sed -e 's|^[[:space:]]*"/|public/|g')"
+
+# rm first and last line | remover everything behinnd the : | remove the part in the front | foreach
+while read -r line ; do
+    if git status --short | grep '^\w.' | grep $line ; then
+        echo "need compile for $line"
+        do_compile=1
+    fi
+done <<<"$(echo -e "$files")"
+
+if [ "$do_compile" = true ] ; then
+    echo "running npm run production"
+    PATH=$PATH:/usr/local/bin:/usr/local/sbin
+    npm run production
+
+    git add public/mix-manifest.json
+fi
+
+sed '1d;$d' public/mix-manifest.json | sed -e 's|":.*||g' | sed -e 's|^[[:space:]]*"/|public/|g' | while read -r line ; do
+
+    if git status --short | grep '^\w.' | grep $line ; then
+        echo "add $line to git"
+        git add $line
+    fi
+done
