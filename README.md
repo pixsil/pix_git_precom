@@ -4,7 +4,7 @@
 
 * Runs automatically before commit
 * Checks mix-manifest.json for compiled file names
-* Check if one of the files is being added to the commit
+* Checks if one of the files is being added to the commit
 * Automaticly runs "npm run production" and add compiled files to commit again
 
 ## Donate
