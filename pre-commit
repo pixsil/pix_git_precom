@@ -15,7 +15,7 @@ while read -r line ; do
 done <<<"$(echo -e "$files")"
 
 # run production and and add mix-manifest.json
-if [ "$do_compile" = true ] ; then
+if [ "$do_compile" = 1 ] ; then
     echo "running npm run production"
     PATH=$PATH:/usr/local/bin:/usr/local/sbin
     npm run production
