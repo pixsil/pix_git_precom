@@ -17,7 +17,7 @@ done <<<"$(echo -e "$files")"
 # run production and and add mix-manifest.json
 if [ "$do_compile" = 1 ] ; then
     echo "running npm run production"
-    PATH=$PATH:/usr/local/bin:/usr/local/sbin
+    PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/local/Cellar/node@14/14.18.2/bin
     npm run production
 
     git add public/mix-manifest.json
