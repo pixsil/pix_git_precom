@@ -19,5 +19,5 @@ Place this file in your hooks dir inside the .git directory. That's all!
 
 Quick install from root folder project:
 ```
-mkdir .git/hooks && wget -O .git/hooks/pre-commit https://raw.githubusercontent.com/pixsil/pix_git_precom/main/pre-commit && chmod +x .git/hooks/pre-commit
+mkdir -p .git/hooks && wget -O .git/hooks/pre-commit https://raw.githubusercontent.com/pixsil/pix_git_precom/main/pre-commit && chmod +x .git/hooks/pre-commit
 ```
