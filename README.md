@@ -1,5 +1,9 @@
-# pre-commit file for npm run production in Laravel
+# pre-commit file for npm run production in Laravel - Webpack version
 
+This is the old verion to use with webpack. For Laravel 9 and above use:
+
+https://github.com/pixsil/git-pre-commit-vite
+ 
 ## Features
 
 * Runs automatically before commit
